@@ -32,6 +32,7 @@
 @media (max-width: 768px) {
     
   .footer nav {
+    display:flex-box;
     margin: 0 auto;
 }
 }

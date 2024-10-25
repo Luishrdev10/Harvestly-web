@@ -24,7 +24,7 @@
   }
 
   .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.514); /* Superposición oscura para mejorar el contraste */
+    background-color: rgba(0, 0, 0, 0.515); /* Superposición oscura para mejorar el contraste */
     position: absolute; /* Asegura que la superposición también esté en posición absoluta */
     top: 0; /* Alinea la superposición en la parte superior */
     left: 0; /* Alinea la superposición a la izquierda */

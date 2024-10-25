@@ -12,18 +12,16 @@
 
 // @ts-ignore
 function handleMenuToggle(event) {
-   event.stopPropagation();
-    menuOpen = !menuOpen;
-    console.log(menuOpen ? 'open' : 'close');
-    const checkbox = document.getElementById('menu-toggle');
+   event.stopPropagation(); // evita que se cierre el menu
+    menuOpen = !menuOpen; 
+    console.log(menuOpen ? 'open' : 'close'); // imprime si esta cerrado o abierto el menu 
+    const checkbox = document.getElementById('menu-toggle'); // checkbox del menu 
 
     // @ts-ignore
     checkbox.checked = menuOpen;
-    
-
 
     if (menuOpen) {
-        document.body.addEventListener('click', handleMenuClose);
+        document.body.addEventListener('click', handleMenuClose); 
     } else {
         document.body.removeEventListener('click', handleMenuClose);
     }
@@ -44,13 +42,16 @@ function handleMenuClose() {
   
   // @ts-ignore
   function scrollToSection(sectionId, event) {
-  event.preventDefault(); 
+  event.preventDefault();
+    event.stopPropagation(); 
   const section = document.getElementById(sectionId);
   if (section) {
     section.scrollIntoView({ behavior: 'smooth' }); // Primero hacemos scroll
-    setTimeout(() => {
-      handleMenuClose(); // Cerramos el menú después de un pequeño delay
-    }, 300); // Delay ajustable si es necesario
+     setTimeout(() => {
+            section.classList.add('visible'); // Agregar clase 'visible' para la transición
+            handleMenuClose(); // Cerrar el menú después de un pequeño delay
+        }, 300);
+     
   } else {
     console.warn(`Section not found: ${sectionId}`);
   }
@@ -68,6 +69,7 @@ function reloadpage(event) {
   
   </script>
   <style>
+  
      .navbar.bg-base-100 { 
     border-radius: 20px;
     padding: 5px 10px;
@@ -101,6 +103,7 @@ function reloadpage(event) {
     width: 98%;
     border-radius: 5%;
     transition: opacity 0.3s ease, transform 0.3s ease;
+    height:auto;
 }
 
 .navbar-center {
@@ -108,10 +111,15 @@ function reloadpage(event) {
     justify-content: center; /* Centra el contenido */
     align-items: center; /* Alinea verticalmente */
 }
-
+.dropdown{
+  display:none;
+}
 
 
 @media (max-width: 768px){
+  .dropdown{
+  display:block;
+}
   .navbar-center {
     display: none;
 }
@@ -212,11 +220,11 @@ function reloadpage(event) {
           <!-- svelte-ignore a11y-missing-attribute -->
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-no-static-element-interactions -->
-          <li><a on:click={(event) => { scrollToSection('quienes-somos', event); handleDetailsClose(); }}>Quienes Somos</a></li>
+          <li><a on:click={(event) => { scrollToSection('quienes-somos', event)}}>Quienes Somos</a></li>
           <!-- svelte-ignore a11y-missing-attribute -->
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-no-static-element-interactions -->
-          <li><a on:click={(event) => { scrollToSection('contacto', event); handleDetailsClose(); }}>Contacto</a></li>
+          <li><a on:click={(event) => { scrollToSection('contacto', event)}}>Contacto</a></li>
         </ul>
       </div>
       <div class="navbar-end">
@@ -248,9 +256,9 @@ function reloadpage(event) {
                   <!-- svelte-ignore a11y-missing-attribute -->
                   <li><a on:click={(event) => { scrollToSection('mision', event); handleDetailsClose(); }}>Misión</a></li>
                   <!-- svelte-ignore a11y-missing-attribute -->
-                  <li><a on:click={() => scrollToSection('vision')}>Visión</a></li>
+                  <li><a on:click={(event) => { scrollToSection('mision', event); handleDetailsClose(); }}>Visión</a></li>
                   <!-- svelte-ignore a11y-missing-attribute -->
-                  <li><a on:click={() => scrollToSection('historia')}>Historia</a></li>
+                  <li><a on:click={(event) => { scrollToSection('mision', event); handleDetailsClose(); }}>Historia</a></li>
                 </ul>
               </details>
             </li>
