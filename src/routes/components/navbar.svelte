@@ -99,11 +99,12 @@ function reloadpage(event) {
 }
 
 .p-2 {
-    position: relative;
+    position: absolute;
     width: 98%;
     border-radius: 5%;
     transition: opacity 0.3s ease, transform 0.3s ease;
     height:auto;
+    z-index: 2;
 }
 
 .navbar-center {
@@ -166,6 +167,7 @@ function reloadpage(event) {
 
 .dropdown-content .p-2 {
     position: relative;
+    z-index: 2;
 }
 
 .btn-ghost {
