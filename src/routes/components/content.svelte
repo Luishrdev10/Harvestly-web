@@ -1,5 +1,8 @@
 <script>
-
+    import History from '../Images/History.webp'
+    import Mision from '../Images/Mision.webp'
+    import Quienes_somos from '../Images/Quienes-somos.webp'
+    import Vision from '../Images/Vision.webp'
 </script>
 
 <style>
@@ -80,6 +83,9 @@ h1::after {
     animation: moveLine 5s linear infinite; 
     opacity: 0;
 }
+span{
+    text-align: justify;
+}
 
 @keyframes moveLine {
     0% {
@@ -118,12 +124,15 @@ h1::after {
     margin: 0 auto; /* Centrando el texto */
 }
 
+
 @media (max-width: 768px) {
     h1 {
         font-size: 2rem; /* Ajusta el tamaño del texto en pantallas más pequeñas */
         margin: 0 auto;
     }
-
+    span{
+    text-align: justify;
+    }
     .hero img {
         max-width: 60%; /* Ajusta la imagen para que se adapte al contenedor */
        
@@ -147,19 +156,16 @@ h1::after {
             <div class="hero-content" id="quienes-somos">
                 <!-- svelte-ignore a11y-missing-attribute -->
                 <img 
-                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                    src={Quienes_somos}
                     class="max-w-sm rounded-lg shadow-2xl" />
                 
                 <h1 class="text-5xl font-bold" >Quienes Somos</h1>
                 <p class="py-6">
                     <span class="text-align">
-                        Provident cupiditate voluptatem et in. 
-                        Quaerat fugiat ut assumenda excepturi exercitationemquasi. In deleniti eaque aut repudiandae et a id nisi.Provident cupiditate voluptatem et in. 
-                        Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.Provident cupiditate voluptatem et in. 
-                        Quaerat fugiat ut assumenda excepturi exercitationemquasi. In deleniti eaque aut repudiandae et a id nisi.Provident cupiditate voluptatem et in. 
-                        Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
+                        somos una innovadora empresa dedicada al monitoreo de cultivos mediante el uso de
+                         inteligencia artificial, Internet de las Cosas (IoT) y análisis de datos. Nuestro objetivo es empoderar a los
+                          agricultores con herramientas tecnológicas que optimicen la gestión de sus cultivos, mejoren la eficiencia y promuevan prácticas agrícolas sostenibles. 
+                          A través de nuestras soluciones, ayudamos a maximizar los rendimientos y a tomar decisiones informadas, garantizando un futuro más productivo y responsable para la agricultura.
                     </span>
                 </p>
             </div>
@@ -170,13 +176,14 @@ h1::after {
             <div class="hero-content" id="historia">
                 <!-- svelte-ignore a11y-missing-attribute -->
                 <img
-                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                    src={History}
                     class="max-w-sm rounded-lg shadow-2xl" />
                 <h1 class="text-5xl font-bold">Historia</h1>
                 <p class="py-6">
                     <span class="text-align">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                    quasi. In deleniti eaque aut repudiandae et a id nisi.
+                        Harvestly fue fundada con el objetivo de abordar los desafíos que enfrentan los agricultores en la era moderna. Con el crecimiento de la población y la presión sobre los recursos naturales
+                        , entendimos la necesidad urgente de soluciones tecnológicas en la agricultura. Desde nuestros inicios, hemos trabajado incansablemente para desarrollar herramientas de monitoreo basadas en IoT e IA que proporcionen información valiosa y en tiempo real a los agricultores.
+                         A medida que nuestra empresa ha crecido, también lo ha hecho nuestro compromiso con la sostenibilidad y la innovación, permitiéndonos ayudar a los agricultores a optimizar sus cultivos y mejorar sus prácticas agrícolas. Hoy, Harvestly se enorgullece de ser un socio confiable para los agricultores, apoyándolos en la búsqueda de una agricultura más inteligente y eficiente.
                     </span>
                 </p>
             </div>
@@ -186,13 +193,13 @@ h1::after {
             <div class="hero-content" id="mision">
                 <!-- svelte-ignore a11y-missing-attribute -->
                 <img
-                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                    src={Mision}
                     class="max-w-sm rounded-lg shadow-2xl" />
                 <h1 class="text-5xl font-bold">Mision</h1>
                 <p class="py-6">
                     <span class="text-align">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                    quasi. In deleniti eaque aut repudiandae et a id nisi.
+                        Nuestra misión en Harvestly es proporcionar soluciones innovadoras de monitoreo de cultivos que empoderen a los agricultores a maximizar la eficiencia, sostenibilidad y rentabilidad de sus operaciones agrícolas. A través del uso de tecnología avanzada, como IoT, analisis de datos e IA, buscamos transformar la forma en que se cultivan los alimentos,
+                         garantizando un futuro más seguro y saludable para todos.
                     </span>
                 </p>
             </div>
@@ -202,13 +209,13 @@ h1::after {
             <div class="hero-content" id="vision">
                 <!-- svelte-ignore a11y-missing-attribute -->
                 <img
-                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                    src={Vision}
                     class="max-w-sm rounded-lg shadow-2xl" />
                 <h1 class="text-5xl font-bold">Vision</h1>
                 <p class="py-6">
                     <span class="text-align">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                    quasi. In deleniti eaque aut repudiandae et a id nisi.
+                        En Harvestly, nuestra visión es ser líderes en la agricultura inteligente, creando un ecosistema donde la tecnología y la naturaleza coexistan en armonía. Nos esforzamos por revolucionar 
+                        la industria agrícola a nivel global, haciendo que el monitoreo de cultivos sea accesible, efectivo y respetuoso con el medio ambiente, contribuyendo a un mundo donde la producción de alimentos sea sostenible y eficiente.
                     </span>
                 </p>
             </div>

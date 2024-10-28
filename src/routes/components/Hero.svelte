@@ -88,8 +88,9 @@ p {
       <div>
         <h1 class="text-5xl font-bold">Por que Haverstly</h1>
         <p class="py-6">
-          Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-          quasi. In deleniti eaque aut repudiandae et a id nisi.
+          
+        Elegimos "Harvestly" porque fusiona la idea de cosecha con un enfoque moderno y tecnológico. Refleja nuestra misión de optimizar cultivos a través de IoT, inteligencia artificial y análisis de datos, ayudando a los agricultores a tomar decisiones informadas 
+        y lograr cosechas más eficientes y sostenibles.
         </p>
        
       </div>

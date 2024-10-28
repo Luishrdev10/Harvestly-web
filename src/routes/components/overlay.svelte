@@ -8,6 +8,7 @@
     min-height: 100vh; /* Asegura que ocupe al menos el tamaño de la ventana */
     width: 100%; /* Asegura que ocupe todo el ancho */
     overflow: hidden; /* Evita que el contenido exceda los bordes */
+   
   }
 
   .hero-background {
@@ -37,6 +38,11 @@
     position: relative; /* Posicionamiento relativo para el contenido */
     z-index: 2; /* Asegura que el contenido esté por encima de la superposición */
   }
+  p{
+    text-align: center;
+  }
+
+
 </style>
 
 <div
@@ -48,10 +54,11 @@
     <div class="max-w-md">
       <h1 class="mb-5 text-5xl font-bold text-white">Bienvenido</h1>
       <p class="mb-5">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
+        En Harvestly, estamos dedicados a transformar la agricultura a través de la tecnología. Nuestro enfoque innovador combina el poder del Internet de las Cosas (IoT) y la inteligencia artificial (IA) para ofrecerte herramientas de monitoreo de cultivos que optimizan tu producción y fomentan la sostenibilidad.
+
+        Te invitamos a unirte a nosotros en esta emocionante aventura hacia el futuro de la agricultura. Con Harvestly, no solo cultivamos, sino que cultivamos inteligentemente. ¡Descubre cómo nuestras soluciones pueden ayudarte a alcanzar una cosecha más abundante y saludable!
       </p>
-      <button class="btn btn-ghost">Get Started</button>
+      
     </div>
   </div>
 </div>

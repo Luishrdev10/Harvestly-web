@@ -1,7 +1,7 @@
 <script>
     import logo from '../Images/Logo proyecto.png';
     
-    function handleDetailsClose() {
+    function handleDetailsClose() { // este es para el menu horizontal en la opcion de acerca de nosotros 
       const details = document.querySelector('details'); // Selecciona el primer <details>
       if (details) {
           details.removeAttribute('open'); // Cierra el <details>
@@ -11,7 +11,7 @@
   let menuOpen = false;
 
 // @ts-ignore
-function handleMenuToggle(event) {
+function handleMenuToggle(event) { // menu barra lateral 
    event.stopPropagation(); // evita que se cierre el menu
     menuOpen = !menuOpen; 
     console.log(menuOpen ? 'open' : 'close'); // imprime si esta cerrado o abierto el menu 
@@ -22,49 +22,46 @@ function handleMenuToggle(event) {
 
     if (menuOpen) {
         document.body.addEventListener('click', handleMenuClose); 
+        console.log('abierto')
     } else {
         document.body.removeEventListener('click', handleMenuClose);
+        console.log('cerrado')
     }
 }
+// @ts-ignore
 
-function handleMenuClose() {
-  menuOpen = false;
-  const checkbox = document.getElementById('menu-toggle');
-    if (checkbox) {
-      // @ts-ignore
-      checkbox.checked = false;
-    }
-    document.body.removeEventListener('click', handleMenuClose);
+function handleMenuClose() { // cierre de menú lateral 
+  menuOpen = false; // Establece el estado del menú como cerrado
+  const checkbox = document.getElementById('menu-toggle'); // Obtiene el checkbox del menú
+  if (checkbox) {
+    // @ts-ignore
+    checkbox.checked = false; // Asegúrate de que el checkbox esté desmarcado
+    console.log('ok');
   }
+  console.log('uhh');
+  document.body.removeEventListener('click', handleMenuClose); // Elimina el evento de clic
+}
 
 
   
   
   // @ts-ignore
-  function scrollToSection(sectionId, event) {
-  event.preventDefault();
-    event.stopPropagation(); 
-  const section = document.getElementById(sectionId);
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' }); // Primero hacemos scroll
-     setTimeout(() => {
-            section.classList.add('visible'); // Agregar clase 'visible' para la transición
-            handleMenuClose(); // Cerrar el menú después de un pequeño delay
-        }, 300);
-     
-  } else {
-    console.warn(`Section not found: ${sectionId}`);
-  }
+  function scrollToSection(sectionId, event) {// scroll de menu lateral 
+    event.preventDefault(); // Previene el comportamiento por defecto del enlace
+    event.stopPropagation(); // Evita que el menú se cierre
+
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        console.warn(`Section not found: ${sectionId}`);
+    }
 }
 
-// Recargar página y cerrar menú con delay
 // @ts-ignore
-function reloadpage(event) {
-  event.preventDefault();
-  setTimeout(() => {
-    window.location.reload(); // Recargamos la página con delay
-    handleMenuClose(); // Cerramos el menú
-  }, 300); // Delay ajustable si es necesario
+function reloadpage(event) { // recarga pagina
+  event.stopPropagation();
+  window.location.reload(); // Recargamos la página con delay
 }
   
   </script>
@@ -256,7 +253,7 @@ function reloadpage(event) {
                 <summary>Acerca de nosotros</summary>
                 <ul class="p-2">
                   <!-- svelte-ignore a11y-missing-attribute -->
-                  <li><a on:click={(event) => { scrollToSection('mision', event); handleDetailsClose(); }}>Misión</a></li>
+                  <li><a on:click={(event) => { scrollToSection('mision'); handleDetailsClose(); }}>Misión</a></li>
                   <!-- svelte-ignore a11y-missing-attribute -->
                   <li><a on:click={(event) => { scrollToSection('mision', event); handleDetailsClose(); }}>Visión</a></li>
                   <!-- svelte-ignore a11y-missing-attribute -->
@@ -266,7 +263,7 @@ function reloadpage(event) {
             </li>
             
             <!-- svelte-ignore a11y-missing-attribute -->
-            <li><a on:click={(event) => { scrollToSection('contacto', event); handleDetailsClose(); }}>Contacto</a></li>
+            <li><a on:click={(event) => scrollToSection('contacto', event)}>Contacto</a></li>
           </ul>
           {/if}
         </div>
