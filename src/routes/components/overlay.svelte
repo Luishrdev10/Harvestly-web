@@ -39,7 +39,7 @@
     z-index: 2; /* Asegura que el contenido esté por encima de la superposición */
   }
   p{
-    text-align: center;
+    text-align:justify;
   }
 
 

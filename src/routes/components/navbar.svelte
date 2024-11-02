@@ -10,59 +10,57 @@
     
   let menuOpen = false;
 
-// @ts-ignore
-function handleMenuToggle(event) { // menu barra lateral 
-   event.stopPropagation(); // evita que se cierre el menu
-    menuOpen = !menuOpen; 
-    console.log(menuOpen ? 'open' : 'close'); // imprime si esta cerrado o abierto el menu 
-    const checkbox = document.getElementById('menu-toggle'); // checkbox del menu 
+    // @ts-ignore
+    function handleMenuToggle(event) {
+        event.stopPropagation();
+        menuOpen = !menuOpen; 
+        console.log(menuOpen ? 'Menú abierto' : 'Menú cerrado');
+        const checkbox = document.getElementById('menu-toggle'); 
+        // @ts-ignore
+        checkbox.checked = menuOpen;
+
+        if (menuOpen) {
+            document.body.addEventListener('click', handleMenuClose); 
+        } else {
+            document.body.removeEventListener('click', handleMenuClose);
+        }
+    }
 
     // @ts-ignore
-    checkbox.checked = menuOpen;
-
-    if (menuOpen) {
-        document.body.addEventListener('click', handleMenuClose); 
-        console.log('abierto')
-    } else {
-        document.body.removeEventListener('click', handleMenuClose);
-        console.log('cerrado')
+    function handleMenuClose(event) {
+        const menu = document.getElementById('menu'); 
+        // @ts-ignore
+        if (!menu.contains(event.target)) {
+            menuOpen = false;
+            const checkbox = document.getElementById('menu-toggle');
+            if (checkbox) {
+                // @ts-ignore
+                checkbox.checked = false; 
+            }
+            console.log('Menú cerrado');
+            document.body.removeEventListener('click', handleMenuClose);
+        }
     }
-}
-// @ts-ignore
 
-function handleMenuClose() { // cierre de menú lateral 
-  menuOpen = false; // Establece el estado del menú como cerrado
-  const checkbox = document.getElementById('menu-toggle'); // Obtiene el checkbox del menú
-  if (checkbox) {
     // @ts-ignore
-    checkbox.checked = false; // Asegúrate de que el checkbox esté desmarcado
-    console.log('ok');
-  }
-  console.log('uhh');
-  document.body.removeEventListener('click', handleMenuClose); // Elimina el evento de clic
-}
+    function scrollToSection(sectionId, event) {
+        event.preventDefault(); 
+        event.stopPropagation(); 
 
-
-  
-  
-  // @ts-ignore
-  function scrollToSection(sectionId, event) {// scroll de menu lateral 
-    event.preventDefault(); // Previene el comportamiento por defecto del enlace
-    event.stopPropagation(); // Evita que el menú se cierre
-
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    } else {
-        console.warn(`Section not found: ${sectionId}`);
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+            console.log(`Desplazando a la sección: ${sectionId}`); // Debugging
+        } else {
+            console.warn(`Sección no encontrada: ${sectionId}`);
+        }
     }
-}
 
-// @ts-ignore
-function reloadpage(event) { // recarga pagina
-  event.stopPropagation();
-  window.location.reload(); // Recargamos la página con delay
-}
+    // @ts-ignore
+    function reloadpage(event) {
+        event.stopPropagation();
+        window.location.reload(); 
+    }
   
   </script>
   <style>
@@ -117,6 +115,7 @@ function reloadpage(event) { // recarga pagina
 @media (max-width: 768px){
   .dropdown{
   display:block;
+  z-index: 3;
 }
   .navbar-center {
     display: none;
@@ -244,7 +243,7 @@ function reloadpage(event) { // recarga pagina
           {#if menuOpen}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
           <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-          <ul class="menu menu-sm dropdown-content mt-3 p-2 shadow-lg bg-base-100 rounded-box w-48">
+          <ul class="menu menu-sm dropdown-content mt-3 p-2 shadow-lg bg-base-100 rounded-box w-48" id="menu">
             <!-- svelte-ignore a11y-missing-attribute -->
             <li><a on:click={(event) => { event.stopPropagation(); reloadpage(); }}>Inicio</a></li>
             
