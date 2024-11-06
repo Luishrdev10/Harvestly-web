@@ -8,39 +8,7 @@
       }
   }
     
-  let menuOpen = false;
-
-    // @ts-ignore
-    function handleMenuToggle(event) {
-        event.stopPropagation();
-        menuOpen = !menuOpen; 
-        console.log(menuOpen ? 'Menú abierto' : 'Menú cerrado');
-        const checkbox = document.getElementById('menu-toggle'); 
-        // @ts-ignore
-        checkbox.checked = menuOpen;
-
-        if (menuOpen) {
-            document.body.addEventListener('click', handleMenuClose); 
-        } else {
-            document.body.removeEventListener('click', handleMenuClose);
-        }
-    }
-
-    // @ts-ignore
-    function handleMenuClose(event) {
-        const menu = document.getElementById('menu'); 
-        // @ts-ignore
-        if (!menu.contains(event.target)) {
-            menuOpen = false;
-            const checkbox = document.getElementById('menu-toggle');
-            if (checkbox) {
-                // @ts-ignore
-                checkbox.checked = false; 
-            }
-            console.log('Menú cerrado');
-            document.body.removeEventListener('click', handleMenuClose);
-        }
-    }
+  
 
     // @ts-ignore
     function scrollToSection(sectionId, event) {
@@ -107,72 +75,11 @@
     justify-content: center; /* Centra el contenido */
     align-items: center; /* Alinea verticalmente */
 }
-.dropdown{
-  display:none;
-}
 
 
 @media (max-width: 768px){
-  .dropdown{
-  display:block;
-  z-index: 3;
-}
-  .navbar-center {
+   .navbar-center {
     display: none;
-}
-.hamburger {
-    position: relative;
-    pointer-events: auto; 
-}
-
-.hamburger input {
-    display: none;
-}
-
-.hamburger svg {
-    height: 3em;
-    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.line {
-    fill: none;
-    stroke: black;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-width: 3;
-    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.line-top-bottom {
-    stroke-dasharray: 12 63;
-}
-
-.hamburger input:checked + svg {
-    transform: rotate(-45deg);
-}
-
-.hamburger input:checked + svg .line-top-bottom {
-    stroke-dasharray: 20 300;
-    stroke-dashoffset: -32.42;
-}
-
-.dropdown-content {
-    width: 200px;
-}
-
-.dropdown-content .p-2 {
-    position: relative;
-    z-index: 2;
-}
-
-.btn-ghost {
-    width: 100%;
-    position: relative;
-}
-
-.hidden {
-    pointer-events: auto;
 }
 }
   
@@ -226,47 +133,7 @@
         </ul>
       </div>
       <div class="navbar-end">
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <div class="dropdown dropdown-end">
-          <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-          <div tabindex="0" class="btn btn-ghost lg:hidden"on:click|stopPropagation={handleMenuToggle}>
-            <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-            <label class="hamburger"  for="menu-toggle" style="pointer-events: none;">
-              <input type="checkbox" id="menu-toggle" class="hidden" />
-              <svg viewBox="0 0 32 32" class="w-6 h-6">
-                <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
-                <path class="line" d="M7 16 27 16"></path>
-              </svg>
-            </label>
-          </div>
-          {#if menuOpen}
-          <!-- svelte-ignore a11y-click-events-have-key-events -->
-          <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-          <ul class="menu menu-sm dropdown-content mt-3 p-2 shadow-lg bg-base-100 rounded-box w-48" id="menu">
-            <!-- svelte-ignore a11y-missing-attribute -->
-            <li><a on:click={(event) => { event.stopPropagation(); reloadpage(); }}>Inicio</a></li>
-            
-            <li>
-              <details on:click|stopPropagation >
-                <summary>Acerca de nosotros</summary>
-                <ul class="p-2">
-                  <!-- svelte-ignore a11y-missing-attribute -->
-                  <li><a on:click={(event) => { scrollToSection('mision'); handleDetailsClose(); }}>Misión</a></li>
-                  <!-- svelte-ignore a11y-missing-attribute -->
-                  <li><a on:click={(event) => { scrollToSection('mision', event); handleDetailsClose(); }}>Visión</a></li>
-                  <!-- svelte-ignore a11y-missing-attribute -->
-                  <li><a on:click={(event) => { scrollToSection('mision', event); handleDetailsClose(); }}>Historia</a></li>
-                </ul>
-              </details>
-            </li>
-            
-            <!-- svelte-ignore a11y-missing-attribute -->
-            <li><a on:click={(event) => scrollToSection('contacto', event)}>Contacto</a></li>
-          </ul>
-          {/if}
-        </div>
-     
+       
       </div>
       
     </div>
