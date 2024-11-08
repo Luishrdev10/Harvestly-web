@@ -1,5 +1,6 @@
 <script>
     import Image from '../Images/Imagen.png'
+    import Image2 from '../Images/resized_agricultural_field.png'
 </script>
 <style>
     .hero {
@@ -51,6 +52,10 @@ p {
     margin-right: 100px; 
     margin-top: 0px;
 }
+img{
+    max-width: 100%;
+    height: 60px;
+}
 
 
 /* Estilos responsivos */
@@ -95,6 +100,28 @@ p {
        
       </div>
     </div>
+    
+  </div>
+
+  <div class="hero bg-base-200 min-h-screen">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <!-- svelte-ignore a11y-missing-attribute -->
+      <img
+        src={Image2}
+        class="max-w-sm rounded-lg shadow-2xl" />
+      <div>
+        <h1 class="text-5xl font-bold">Descripcion</h1>
+        <p class="py-6">
+          
+        Harvestly Combina la tradicion de la cosecha con tecnologia avanzada para transformar la agricultura dirigido a agricultores 
+        y productores nuestro sistema optimiza la produccion al integrar herramientas que analizan factores ambientales 
+        permiten una toma de decisiones basada en datos con Harvestly los agricultores pueden minimizar perdidas y enfrentar 
+        los desafios del campo de manera eficiente y segura
+        </p>
+       
+      </div>
+    </div>
+    
   </div>
 
   

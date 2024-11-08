@@ -1,5 +1,5 @@
 <script>
-  import Overlay from '../Images/Overlay-transformed.png'
+  import Overlay from '../Images/enlarged_image.webp'
 </script>
 
 <style>
